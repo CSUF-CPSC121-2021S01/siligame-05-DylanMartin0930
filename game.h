@@ -32,8 +32,8 @@ class Game : public graphics::AnimationEventListener,
   // member functions
   void CreateOpponents() {
     std::unique_ptr<Opponent> enemy = std::make_unique<Opponent>();
-    enemy->SetX(400);
-    enemy->SetY(300);
+    enemy->SetX(rand()%800);
+    enemy->SetY(rand()%100);
     opponents_.push_back(std::move(enemy));
   }
 
