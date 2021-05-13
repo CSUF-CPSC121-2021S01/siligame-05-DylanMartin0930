@@ -8,8 +8,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-
-
 class Game : public graphics::AnimationEventListener,
              graphics::MouseEventListener {
  public:
@@ -29,7 +27,7 @@ class Game : public graphics::AnimationEventListener,
   Player &GetPlayer() { return player_; }
 
   int GetScore() { return playerScore; }
-  bool HasLost() { return !isPlaying; } 
+  bool HasLost() { return !isPlaying; }
 
   // member functions
   void CreateOpponents() {
@@ -40,12 +38,14 @@ class Game : public graphics::AnimationEventListener,
   }
 
   /*void CreateOpponentProjectiles() {
-    std::unique_ptr<OpponentProjectile> oProjectile = std::make_unique<OpponentProjectile>();
+    std::unique_ptr<OpponentProjectile> oProjectile =
+  std::make_unique<OpponentProjectile>();
     opponentprojectiles_.push_back(std::move(oProjectile));
   }
 
   void CreatePlayerProjectiles() {
-    std::unique_ptr<PlayerProjectile> pProjectile = std::make_unique<PlayerProjectile>();
+    std::unique_ptr<PlayerProjectile> pProjectile =
+  std::make_unique<PlayerProjectile>();
     playerprojectiles_.push_back(std::move(pProjectile));
   }
   */
@@ -75,8 +75,8 @@ class Game : public graphics::AnimationEventListener,
   void RemoveInactive();
 
  private:
-   int playerScore =0;
-   bool isPlaying = true;
+  int playerScore = 0;
+  bool isPlaying = true;
 
   int width_;
   int height_;
@@ -86,6 +86,5 @@ class Game : public graphics::AnimationEventListener,
   std::vector<std::unique_ptr<PlayerProjectile>> playerprojectiles_;
   Player player_;
 };
-
 
 #endif

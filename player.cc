@@ -40,5 +40,4 @@ void PlayerProjectile::Move(const graphics::Image &character) {
   if (IsOutOfBounds(character)) {
     SetIsActive(false);
   }
-
 }

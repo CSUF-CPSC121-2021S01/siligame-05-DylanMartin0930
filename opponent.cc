@@ -1,11 +1,11 @@
 #include "opponent.h"
-#include "player.h"
 
+#include <cstdlib>
 #include <iostream>
 #include <memory>
-#include <cstdlib>
 
 #include "cpputils/graphics/image.h"
+#include "player.h"
 
 void Opponent::Draw(graphics::Image &gameCanvas) {
   graphics::Image opponent;
@@ -22,20 +22,18 @@ void Opponent::Draw(graphics::Image &gameCanvas) {
   }
 }
 
-//Launch projecile
-std::unique_ptr<class OpponentProjectile> Opponent::LaunchProjectile(){
+// Launch projecile
+std::unique_ptr<class OpponentProjectile> Opponent::LaunchProjectile() {
+  std::unique_ptr<OpponentProjectile> projectile;
 
-std::unique_ptr<OpponentProjectile> projectile;
-
-if (counter < 5){
-  counter++;
-  return nullptr;
-}else {
-  projectile = std::make_unique<OpponentProjectile>(GetX(), GetY());
-  counter = 0;
-  return std::move(projectile);
- }
-
+  if (counter < 5) {
+    counter++;
+    return nullptr;
+  } else {
+    projectile = std::make_unique<OpponentProjectile>(GetX(), GetY());
+    counter = 0;
+    return std::move(projectile);
+  }
 }
 
 void OpponentProjectile::Draw(graphics::Image &gameCanvas) {
